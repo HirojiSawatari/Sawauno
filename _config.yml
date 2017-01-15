@@ -1,0 +1,33 @@
+﻿# Header
+menu:
+  首页: /#blog
+  归档: /archive
+  画廊: /photo
+  关于: /about
+  其他: /other
+
+# Site favicon
+favicon: /images/favicon2.ico
+
+# Site logo
+logo: /images/logo2.png
+
+# Enable Mathjax
+mathjax: true
+
+# Enable awesome-toc
+awesome_toc: true
+
+# Enable githubRepoWidget
+github_repo_widget: false
+
+# --------------------------------------------------------------
+# background settings
+# --------------------------------------------------------------
+# add canvas-nest effect
+# see detail from https://github.com/hustcc/canvas-nest.js
+canvas_nest: true
+
+donate:
+  enable: true
+  text: 若本文对您有帮助，请打赏鼓励本人！
