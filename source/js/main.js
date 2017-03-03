@@ -35,4 +35,14 @@
     $(".fancybox").fancybox();
   })
 
+  $(".suspend").mouseover(function() {
+	$(this).stop();
+    $(this).animate({width: 120}, 400);
+  })
+	
+  $(".suspend").mouseout(function() {
+	$(this).stop();
+    $(this).animate({width: 40}, 400);
+  });
+  
 });

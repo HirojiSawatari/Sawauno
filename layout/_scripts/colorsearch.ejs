@@ -1,0 +1,50 @@
+<script type="text/javascript">
+    // Popupcolor Window;
+    var colorisfetched = false;
+	
+    // monitor main search box;
+    function colorproceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popupcolor').toggle();
+    }
+    // search function;
+	var colorSearchFunc = function(search_id, content_id) {
+		colorisfetched = true;
+		
+		var $input = document.getElementById(search_id);
+        var $resultContent = document.getElementById(content_id);
+		
+		$input.addEventListener('input', function(){
+			var colorcode = this.value.trim().toLowerCase();
+			if (this.value.trim().length > 1) {
+				$resultContent.style.background = colorcode;
+			}
+		});
+		
+		colorproceedsearch();
+	}
+
+    // handle and trigger popup window;
+    $('.popupcolor-trigger').click(function(e) {
+      e.stopPropagation();
+      if (colorisfetched == false) {
+		//function
+		colorSearchFunc('color-input', 'color-show');
+      } else {
+		colorisfetched = false;
+        $('.popupcolor').hide();
+		$(".popoverlay").remove();
+		$('body').css('overflow', '');
+      };
+    });
+
+    $('.popupcolor-btn-close').click(function(e){
+	  colorisfetched = false;
+      $('.popupcolor').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popupcolor').click(function(e){
+      e.stopPropagation();
+    });
+  </script>

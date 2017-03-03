@@ -58,15 +58,264 @@
     <%- css('css/archive.css') %>
     <%- css('css/china-social-icon.css') %>
     <%- css('css/instagram.css') %>
-
+    <%- css('css/font-awesome.css') %>
+	<%- css('css/suspend.css') %>
+	<%- css('css/popup.css') %>
+	<%- css('css/map.css') %>
+	
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=3e4f0d6e331ae7d7abf025282b77e020"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+	
 </head>
-<body>
-
+<body class="custom-background">
+	
     <span class="mobile btn-mobile-menu">
         <i class="icon icon-list btn-mobile-menu__icon"></i>
         <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
     </span>
 
+	<div class="suspend">
+		<dl>
+			<dt class="IE6PNG"></dt>
+			<dd class="suspendHead"></dd>			
+			<dd class="suspendSearch">
+				<a href="javascript:;" class="popup-trigger"></a>
+			</dd>
+			<dd class="suspendColor">
+				<a href="javascript:;" class="popupcolor-trigger"></a>
+			</dd>
+			<dd class="suspendTwitch"><a href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+
+    var songs = [
+                "http://o9w8f1xrl.bkt.clouddn.com/highqilai/harlem-shake.mp3",
+                "......"
+    ];
+
+    
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+ 
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+ 
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+ 
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+ 
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+ 
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+ 
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+ 
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+ 
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.getElementById("audio_element_id");
+        if(e != null){
+            var index = parseInt(e.getAttribute("curSongIndex"));
+            if(index > songs.length - 2) {
+                index = 0;
+            } else {
+                index++;
+            }
+            e.setAttribute("curSongIndex", index);
+            N();
+        }
+
+        e.src = i;
+        e.play()
+    }
+ 
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+ 
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+ 
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    function initAudioEle() {
+        var e = document.getElementById("audio_element_id");
+        if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("class", l);
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h();
+            go();
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        }
+    }
+    
+    initAudioEle();
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+
+    var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+    var i = songs[curSongIndex];
+    
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+
+    /* harlem-shake-style.css，替换成你的位置，也可以直接使用：//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css */
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+		})()'></a></dd>
+		</dl>
+		
+		<div class="site-search">
+			<div class="popup">
+				<span class="search-icon fa fa-search"></span>
+				<input type="text" id="local-search-input" placeholder="输入关键字">
+				<div id="local-search-result"></div>
+				<span class="popup-btn-close">close</span>
+			</div>
+		</div>
+		
+		<div class="color-search">
+			<div class="popupcolor">
+				<span class="search-icon fa fa-search"></span>
+				<input type="text" id="color-input" placeholder="输入颜色代码">
+				<div id="color-result">
+					<div style="margin: auto; position: absolute; left: 0; right: 0; top: 25%; bottom: 0">
+						<center>此代码对应颜色为：</center>
+					</div>
+					<div id="color-show" style="background: #ffffff; width: 200px; height: 75px; margin: auto; position: absolute; left: 0; right: 0; top: 0; bottom: 0; border:1px solid #000"></div>
+				</div>
+				<span class="popupcolor-btn-close">close</span>
+			</div>
+		</div>
+		
+	</div>
+	
     <%- partial('_partials/side-panel') %>
 
     <div class="content-wrapper">
@@ -89,18 +338,44 @@
     <script type="text/javascript" src="<%- config.root %>js/jquery.fancybox.js"></script>
     <script type="text/javascript" src="<%- config.root %>js/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="<%- config.root %>js/jquery.mousewheel-3.0.6.pack.js"></script>  <!--带有鼠标滚动效果的库-->
-
+	
+	<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        zoom:16,
+        center: [116.317001, 39.992617]    
+    });
+	var marker = new AMap.Marker({
+        position: [116.317001, 39.992617]
+    });
+	marker.setMap(map);
+	marker.on('click',function(e){
+      infowindow.open(map,e.target.getPosition());
+    })
+	AMap.plugin('AMap.AdvancedInfoWindow',function(){
+		infowindow = new AMap.AdvancedInfoWindow({
+			content: '<div class="map-info-title">本人坐标</div><div class="map-info-content">'+
+					'本人目前工作地点地址：<br/>北京市海淀区成府路209号中楼525<br/>'+
+					'</div>',
+			offset: new AMap.Pixel(0, -30)
+		});
+		infowindow.open(map,[116.317001, 39.992617]);
+	})
+	</script>
+	
     <style type="text/css">
       #content{width: 800px;margin: 20px auto;overflow: hidden;}
       #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {background-image: url('<%- config.root %>images/fancybox_sprite.png');}  /**更改fancybox默认的图片路径**/
     </style>
 
+	<%- partial('_scripts/localsearch') %>
+	<%- partial('_scripts/colorsearch') %>
     <%- partial('_scripts/mathjax') %>
     <%- partial('_scripts/awesome-toc') %>
     <%- partial('_scripts/github-repo-widget') %>
     <%- partial('_scripts/killie6') %>
-
-    <script type="text/javascript" color="0,0,0" opacity='0.3' zIndex="-1" count="100" src="<%- config.root %>js/canvas-nest.min.js"></script>
+	
+    <!-- <script type="text/javascript" color="0,0,0" opacity='0.3' zIndex="-1" count="100" src="<%- config.root %>js/canvas-nest.min.js"></script> -->
 
 
 </body>
